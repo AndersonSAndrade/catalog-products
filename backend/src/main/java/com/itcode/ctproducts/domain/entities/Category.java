@@ -1,12 +1,10 @@
 package com.itcode.ctproducts.domain.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Instant;
 
 @Entity
 @Data
@@ -21,4 +19,22 @@ public class Category implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
     private String name;
+
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Setter(AccessLevel.NONE)
+    private Instant createdAt;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Setter(AccessLevel.NONE)
+    private Instant updatedAt;
+
+    @PrePersist
+    public void prePersist(){
+        createdAt = Instant.now();
+    }
+
+    @PreUpdate
+    public void preUpdate(){
+        updatedAt = Instant.now();
+    }
+
 }

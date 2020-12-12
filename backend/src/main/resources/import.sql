@@ -1,3 +1,3 @@
-INSERT INTO tb_category (name) VALUES ('Books');
-INSERT INTO tb_category (name) VALUES ('Eletronics');
-INSERT INTO tb_category (name) VALUES ('Computers');
+INSERT INTO tb_category (name, created_At) VALUES ('Books', now());
+INSERT INTO tb_category (name, created_At) VALUES ('Eletronics', now());
+INSERT INTO tb_category (name, created_At) VALUES ('Computers', now());
