@@ -10,6 +10,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 import java.net.URI;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 @RestController
@@ -36,6 +37,12 @@ public class CategoryResource {
         dto = categoryService.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CategoryDTO> update(@PathVariable Long id , @RequestBody CategoryDTO dto){
+        dto = categoryService.update(id, dto);
+        return ResponseEntity.ok().body(dto);
     }
 
 }
