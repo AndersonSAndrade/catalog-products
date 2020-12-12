@@ -3,8 +3,11 @@ package com.itcode.ctproducts.services;
 import com.itcode.ctproducts.domain.dto.CategoryDTO;
 import com.itcode.ctproducts.domain.entities.Category;
 import com.itcode.ctproducts.domain.repositories.CategoryRepository;
+import com.itcode.ctproducts.services.exceptions.DatabaseException;
 import com.itcode.ctproducts.services.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,6 +51,16 @@ public class CategoryService {
             return new CategoryDTO(entity);
         }catch (EntityNotFoundException e){
             throw new ResourceNotFoundException("Id Not Found " + id);
+        }
+    }
+
+    public void delete(Long id) {
+        try {
+            categoryRepository.deleteById(id);
+        }catch (EmptyResultDataAccessException e){
+            throw new ResourceNotFoundException("Id Not Found " + id);
+        }catch (DataIntegrityViolationException e){
+            throw new DatabaseException("Integrid Vaiolation!");
         }
     }
 }
