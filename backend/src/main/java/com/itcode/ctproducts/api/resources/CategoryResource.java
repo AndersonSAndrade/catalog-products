@@ -1,6 +1,6 @@
 package com.itcode.ctproducts.api.resources;
 
-import com.itcode.ctproducts.domain.entities.Category;
+import com.itcode.ctproducts.domain.dto.CategoryDTO;
 import com.itcode.ctproducts.services.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ public class CategoryResource {
     private final CategoryService categoryService;
 
     @GetMapping
-    public ResponseEntity<List<Category>> findAll(){
-        List<Category> list = categoryService.findAll();
+    public ResponseEntity<List<CategoryDTO>> findAll(){
+        List<CategoryDTO> list = categoryService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
