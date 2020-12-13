@@ -6,10 +6,11 @@
 - [x] Configurações, Profiles Test, Developer e Product.
 - [x] Criando Entidade Categoria.
 - [x] Criando Banco H2 para teste, e configurando conexão com o banco
-- [x] Começando o CRUD de Categorias
-- [ ] Implementando CRUD de Produtos
-- [ ] Criando Controladores e Classe de Serviço.
-- [ ] Criando Exception Personalizada, Implementando Serviço, 
+- [x] Implementando CRUD de Categorias
+- [x] Criando atributos de auditoria com createdAt e updatedAt.
+- [x] Implementando CRUD de Produtos
+- [x] Criando Controladores e Classe de Serviço.
+- [x] Criando Exception Personalizada, Implementando Serviço, 
 - [ ] Documentando código com Swagger.
 - [ ] Testando Recursos gerais
 
