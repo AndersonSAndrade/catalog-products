@@ -1,8 +1,8 @@
 package com.itcode.ctproducts.services;
 
-import com.itcode.ctproducts.domain.dto.CategoryDTO;
-import com.itcode.ctproducts.domain.entities.Category;
-import com.itcode.ctproducts.domain.repositories.CategoryRepository;
+import com.itcode.ctproducts.domain.dto.ProductDTO;
+import com.itcode.ctproducts.domain.entities.Product;
+import com.itcode.ctproducts.domain.repositories.ProductRepository;
 import com.itcode.ctproducts.services.exceptions.DatabaseException;
 import com.itcode.ctproducts.services.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -18,37 +18,37 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryService {
-    private final CategoryRepository categoryRepository;
+public class ProductService {
+    private final ProductRepository productRepository;
 
     @Transactional(readOnly = true)
-    public Page<CategoryDTO> findAllPaged(PageRequest pageRequest){
-        Page<Category> list =  categoryRepository.findAll(pageRequest);
-        return list.map(CategoryDTO::new);
+    public Page<ProductDTO> findAllPaged(PageRequest pageRequest){
+        Page<Product> list =  productRepository.findAll(pageRequest);
+        return list.map(ProductDTO::new);
     }
 
     @Transactional(readOnly = true)
-    public CategoryDTO fidById(Long id) {
-        Optional<Category> obj = categoryRepository.findById(id);
-        Category entity = obj.orElseThrow(() -> new ResourceNotFoundException("Categoria não Encontrada!"));
-        return new CategoryDTO(entity);
+    public ProductDTO fidById(Long id) {
+        Optional<Product> obj = productRepository.findById(id);
+        Product entity = obj.orElseThrow(() -> new ResourceNotFoundException("Produto não Encontrada!"));
+        return new ProductDTO(entity, entity.getCategories());
     }
 
     @Transactional(readOnly = true)
-    public CategoryDTO insert(CategoryDTO dto) {
-        Category entity = new Category();
-        entity.setName(dto.getName());
-        entity = categoryRepository.save(entity);
-        return new CategoryDTO(entity);
+    public ProductDTO insert(ProductDTO dto) {
+        Product entity = new Product();
+        //entity.setName(dto.getName());
+        entity = productRepository.save(entity);
+        return new ProductDTO(entity);
     }
 
     @Transactional
-    public CategoryDTO update(Long id, CategoryDTO dto) {
+    public ProductDTO update(Long id, ProductDTO dto) {
         try {
-            Category entity = categoryRepository.getOne(id);
-            entity.setName(dto.getName());
-            entity = categoryRepository.save(entity);
-            return new CategoryDTO(entity);
+            Product entity = productRepository.getOne(id);
+            //entity.setName(dto.getName());
+            entity = productRepository.save(entity);
+            return new ProductDTO(entity);
         }catch (EntityNotFoundException e){
             throw new ResourceNotFoundException("Id Not Found " + id);
         }
@@ -56,7 +56,7 @@ public class CategoryService {
 
     public void delete(Long id) {
         try {
-            categoryRepository.deleteById(id);
+            productRepository.deleteById(id);
         }catch (EmptyResultDataAccessException e){
             throw new ResourceNotFoundException("Id Not Found " + id);
         }catch (DataIntegrityViolationException e){

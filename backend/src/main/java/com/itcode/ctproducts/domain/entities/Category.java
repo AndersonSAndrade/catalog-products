@@ -8,8 +8,6 @@ import java.time.Instant;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "tb_category")
 public class Category implements Serializable {
