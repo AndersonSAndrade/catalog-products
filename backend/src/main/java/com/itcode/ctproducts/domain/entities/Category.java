@@ -1,5 +1,6 @@
 package com.itcode.ctproducts.domain.entities;
 
+import com.itcode.ctproducts.domain.dto.CategoryDTO;
 import lombok.*;
 
 import javax.persistence.*;

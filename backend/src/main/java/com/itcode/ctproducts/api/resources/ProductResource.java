@@ -34,7 +34,7 @@ public class ProductResource {
     @GetMapping("/{id}")
     public ResponseEntity<ProductDTO> findById(@PathVariable Long id){
         ProductDTO dto =  productService.fidById(id);
-        System.out.println(dto.getCategoriesDTO());
+        System.out.println(dto.getCategories());
         return ResponseEntity.ok().body(dto);
     }
 

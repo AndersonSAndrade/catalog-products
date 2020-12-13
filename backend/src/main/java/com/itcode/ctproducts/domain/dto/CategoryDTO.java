@@ -1,15 +1,13 @@
 package com.itcode.ctproducts.domain.dto;
 
 import com.itcode.ctproducts.domain.entities.Category;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
 import java.io.Serializable;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
+@Getter
 public class CategoryDTO implements Serializable {
     private static final Long serialVersionUID = 1L;
 
@@ -21,4 +19,11 @@ public class CategoryDTO implements Serializable {
         this.name = entity.getName();
     }
 
+    public CategoryDTO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public CategoryDTO() {
+    }
 }
