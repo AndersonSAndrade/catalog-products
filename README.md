@@ -1,5 +1,5 @@
 # Projeto API Catalogo de Produtos (CURSO DEVSUPERIOR)
-#### Projeto API criado com Back-End em Spring e Front-End com React
+#### Projeto API criado com Back-End em Spring e Front-End com React Atualizado
 
 ## Processos
 - [x] Criando Estrutura do projeto.
