@@ -1,11 +1,10 @@
-.items-img-product{
-    padding-left: 10px;
+.img-product-details{
+    width: 90%;
    
 }
-
-.img-product-details{
-    width: 300px;
-   
+.items-img-product{
+    display: flex;
+    justify-content: center;
 }
 
 .text-product-details{
@@ -16,7 +15,6 @@
     letter-spacing: -0.015em;  
     color: #263238;
     mix-blend-mode: normal;
-    text-align: center;
 }
 
 .p-product-details{

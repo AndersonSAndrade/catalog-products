@@ -1,20 +1,19 @@
 import React from 'react';
 import './styles.scss';
-import { ReactComponent as ProductImage} from '../../../../core/assets/images/computador.svg';
 import PriceProducts from '../PriceProduct';
+import { Product } from '../../../../core/models/Product';
 
 type Props = {
-    title: string,
-    price: string
+    product: Product;
 }
 
-const ProductCard = ({title, price}: Props) => (
+const ProductCard = ({product}: Props) => (
 
     <div className="card custom-card">
         <div className="card-body">
-            <ProductImage />
-            <p className="product-title">{title}</p>
-             <PriceProducts prices={price}/>
+            <img src={product.imgUrl} alt={product.name} className="product-card-image"/>
+            <p className="product-title">{product.name}</p>
+             <PriceProducts prices={product.price}/>
         </div>
     </div>
 
