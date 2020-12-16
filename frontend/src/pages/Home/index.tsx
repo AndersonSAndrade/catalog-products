@@ -12,7 +12,7 @@ const Home = () => (
             <div className="col-6">
                 <h2 className="card-title text-title">Conheça o melhor catálogo de produtos</h2>
                 <p className="card-text text-subtitle">Ajudaremos você a encontrar os melhores produtos disponíveis no mercado.</p>
-                <ButtonIcon/>
+                <ButtonIcon text="INICIE AGORA A SUA BUSCA"/>
             </div>
             <div className="col-6 offcet-md-2">
                 <MainImage className="main-image"/>
