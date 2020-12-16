@@ -14,7 +14,6 @@ const Home = () => (
                 <p className="card-text text-subtitle">Ajudaremos você a encontrar os melhores produtos disponíveis no mercado.</p>
                 <ButtonIcon/>
             </div>
-           
             <div className="col-6 offcet-md-2">
                 <MainImage className="main-image"/>
             </div>
