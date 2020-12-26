@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ButtomReturn from '../../../../core/components/ButtomReturn';
+import ButtomReturn from 'core/components/ButtomReturn';
 
 import './styles.scss';
 import PriceProducts from '../PriceProduct';
-import { Product } from '../../../../core/models/Product';
-import { makeRequest } from '../../../../core/utils/request';
+import { Product } from 'core/models/Product';
+import { makeRequest } from 'core/utils/request';
 import ProductDetailsLoader from '../ProductDetailsLoader';
 
 type ParamsType = {

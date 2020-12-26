@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from './components/ProductCard';
 import './styles.scss';
-import { makeRequest } from '../../core/utils/request';
-import { ProductsResponse } from '../../core/models/Product';
+import { makeRequest } from 'core/utils/request';
+import { ProductsResponse } from 'core/models/Product';
 import ProductCardLoader from './components/ProductCardLoader';
 
 const Catalog = () => {
